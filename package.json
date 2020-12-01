@@ -14,10 +14,15 @@
     "@chakra-ui/react": "^1.0.1",
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
+    "@mdx-js/loader": "^1.6.21",
+    "@mdx-js/mdx": "^1.6.21",
+    "@next/mdx": "^10.0.3",
     "framer-motion": "^2.9.4",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "remark-emoji": "^2.1.0",
+    "remark-images": "^2.0.0",
     "sass": "^1.29.0"
   },
   "devDependencies": {

@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { extendTheme, ChakraProvider, Theme, Container } from '@chakra-ui/react';
+import { extendTheme, ChakraProvider, Theme, Container, Heading } from '@chakra-ui/react';
+import { Components as MDXComponents, MDXProvider } from '@mdx-js/react';
+
 import Header from '../components/header';
 
 const theme: Theme = extendTheme({
@@ -35,10 +37,14 @@ const theme: Theme = extendTheme({
   },
 });
 
+const mdComponents: MDXComponents = { h1: (props) => <Heading as="h1" {...props} /> };
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>Alex Bussey</title>
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700;1,900&display=swap"
@@ -48,7 +54,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={extendTheme(theme)}>
         <Container paddingTop={4} maxWidth="lg">
           <Header />
-          <Component {...pageProps} />
+          <MDXProvider components={mdComponents}>
+            <Component {...pageProps} />
+          </MDXProvider>
         </Container>
       </ChakraProvider>
     </>

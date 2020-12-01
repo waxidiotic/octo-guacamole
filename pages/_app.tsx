@@ -22,11 +22,14 @@ const theme: Theme = extendTheme({
     global: (props) => ({
       'html, body': {
         backgroundColor: `background.${props.colorMode}`,
-        color: props.colorMode === 'dark' ? 'gray.300' : 'gray.800',
+        color: props.colorMode === 'dark' ? 'gray.300' : 'gray.600',
         fontFamily: 'body',
       },
       body: {
         borderTop: '16px #457b9d solid',
+      },
+      h2: {
+        fontStyle: 'italic',
       },
     }),
   },

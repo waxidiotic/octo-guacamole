@@ -12,8 +12,8 @@ const theme: Theme = extendTheme({
   },
   colors: {
     background: {
-      dark: '#1d3557',
-      light: '#f1faee',
+      dark: '#0B132B',
+      light: '#caf0f6',
     },
   },
   fonts: {
@@ -28,7 +28,7 @@ const theme: Theme = extendTheme({
         fontFamily: 'body',
       },
       body: {
-        borderTop: '16px #457b9d solid',
+        borderTop: `16px ${props.colorMode === 'dark' ? '#DB504A' : '#457b9d'} solid`,
       },
       h2: {
         fontStyle: 'italic',

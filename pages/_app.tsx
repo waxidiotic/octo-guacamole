@@ -17,6 +17,10 @@ const theme: Theme = extendTheme({
       // light: '#caf0f6',
       light: 'white',
     },
+    highlight: {
+      dark: '#DB504A',
+      light: '#457b9d',
+    },
   },
   fonts: {
     body: `'IBM Plex Sans', sans-serif`,
@@ -39,14 +43,18 @@ const theme: Theme = extendTheme({
       },
       'pre, code': {
         fontFamily: 'mono',
+        fontWeight: 600,
+        fontSize: '1em',
+        color: props.colorMode === 'dark' ? 'gray.300' : 'gray.600',
       },
     }),
   },
 });
 
 const mdComponents: MDXComponents = {
-  h1: (props) => <Heading as="h1" paddingBottom={4} {...props} />,
-  p: (props) => <Text {...props} />,
+  h1: (props) => <Heading as="h1" size="xl" paddingBottom={8} {...props} />,
+  h3: (props) => <Heading as="h3" size="md" paddingBottom={4} {...props} />,
+  p: (props) => <Text lineHeight="taller" {...props} />,
   code: (props) => <CodeSample {...props} />,
 };
 

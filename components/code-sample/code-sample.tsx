@@ -1,9 +1,8 @@
 import React from 'react';
 import { CheckIcon, CopyIcon } from '@chakra-ui/icons';
-import { ButtonGroup, Button, IconButton, useColorMode, useClipboard } from '@chakra-ui/react';
+import { IconButton, useClipboard, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 
-export default function CodeSample({ children }: { children: React.ReactChildren }) {
-  const { colorMode } = useColorMode();
+export default function CodeSample({ children }: { children: string }) {
   const [code, setCode] = React.useState(children);
   const { hasCopied, onCopy } = useClipboard(String(code));
 
@@ -12,11 +11,17 @@ export default function CodeSample({ children }: { children: React.ReactChildren
   }, []);
 
   return (
-    <ButtonGroup colorScheme={colorMode === 'dark' ? 'gray' : 'blue'} isAttached variant="outline">
-      <Button mr="-px">
-        <code>{children}</code>
-      </Button>
-      <IconButton onClick={onCopy} aria-label="Copy to clipboard" icon={hasCopied ? <CheckIcon /> : <CopyIcon />} />
-    </ButtonGroup>
+    <InputGroup my={8} isAttached>
+      <Input value={children} variant="filled" isReadOnly isTruncated />
+      <InputRightElement>
+        <IconButton
+          borderTopLeftRadius="0"
+          borderBottomLeftRadius="0"
+          onClick={onCopy}
+          aria-label="Copy to clipboard"
+          icon={hasCopied ? <CheckIcon /> : <CopyIcon />}
+        />
+      </InputRightElement>
+    </InputGroup>
   );
 }

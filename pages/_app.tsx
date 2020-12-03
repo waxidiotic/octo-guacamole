@@ -3,7 +3,8 @@ import Head from 'next/head';
 import { extendTheme, ChakraProvider, Theme, Container, Heading, Text } from '@chakra-ui/react';
 import { Components as MDXComponents, MDXProvider } from '@mdx-js/react';
 
-import Header from '../components/header';
+import { Header } from '../components/header';
+import { CodeSample } from '../components/code-sample';
 
 const theme: Theme = extendTheme({
   config: {
@@ -13,12 +14,14 @@ const theme: Theme = extendTheme({
   colors: {
     background: {
       dark: '#0B132B',
-      light: '#caf0f6',
+      // light: '#caf0f6',
+      light: 'white',
     },
   },
   fonts: {
     body: `'IBM Plex Sans', sans-serif`,
     heading: `'IBM Plex Sans Condensed', sans-serif`,
+    mono: `'IBM Plex Mono', monospace`,
   },
   styles: {
     global: (props) => ({
@@ -31,7 +34,11 @@ const theme: Theme = extendTheme({
         borderTop: `16px ${props.colorMode === 'dark' ? '#DB504A' : '#457b9d'} solid`,
       },
       h2: {
+        fontFamily: 'heading',
         fontStyle: 'italic',
+      },
+      'pre, code': {
+        fontFamily: 'mono',
       },
     }),
   },
@@ -40,6 +47,7 @@ const theme: Theme = extendTheme({
 const mdComponents: MDXComponents = {
   h1: (props) => <Heading as="h1" paddingBottom={4} {...props} />,
   p: (props) => <Text {...props} />,
+  code: (props) => <CodeSample {...props} />,
 };
 
 function MyApp({ Component, pageProps }: AppProps) {

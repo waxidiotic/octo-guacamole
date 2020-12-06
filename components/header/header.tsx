@@ -10,7 +10,7 @@ export default function Header() {
       <Flex align="center" paddingBottom={8}>
         <Spacer />
         <HStack spacing="4">
-          <Button aria-label="test" variant="ghost">
+          <Button aria-label="resources" variant="ghost">
             <NextLink href="/resources">Resources</NextLink>
           </Button>
           <IconButton
@@ -22,7 +22,7 @@ export default function Header() {
         </HStack>
       </Flex>
       <Heading as="h1" size="2xl">
-        Alex Bussey
+        <NextLink href="/">Alex Bussey</NextLink>
       </Heading>
       <Text fontSize="4xl">does not know what to put here.</Text>
     </Box>

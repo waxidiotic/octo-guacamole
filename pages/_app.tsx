@@ -5,6 +5,7 @@ import { Components as MDXComponents, MDXProvider } from '@mdx-js/react';
 
 import { Header } from '../components/header';
 import { CodeSample } from '../components/code-sample';
+import { Link } from '../components/link';
 
 const theme: Theme = extendTheme({
   config: {
@@ -55,6 +56,7 @@ const mdComponents: MDXComponents = {
   h3: (props) => <Heading as="h3" size="md" paddingBottom={4} {...props} />,
   p: (props) => <Text lineHeight="taller" {...props} />,
   code: (props) => <CodeSample {...props} />,
+  a: (props) => <Link {...props} />,
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
